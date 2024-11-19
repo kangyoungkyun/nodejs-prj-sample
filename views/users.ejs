@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <title>12</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <!-- 페이징 정보 -->
+    <div>books : <%= books %></div>
+    <div>cur_page : <%= cur_page %></div>
+    <div>total_page : <%= total_page %></div>
+    <div>start_page : <%= start_page %></div>
+    <div>end_page : <%= end_page %></div>
+    <div>prev_page : <%= prev_page %></div>
+    <div>next_page : <%= next_page %></div>
+
+    <!-- 게시물 목록 -->
+    <ul>
+        <% books.forEach(book => { %>
+            <li> <%= book.name %> - <%=book.author %></li>
+        <%  }); %>
+
+    </ul>
+
+
+    <!-- 페이징 처리 -->
+    <div>
+
+        <a href="/users?page=1">처음</a>
+
+
+        <% if(prev_page > 1){ %>
+            <a href="/users?page=<%= prev_page %>">이전</a>
+        <% } %>
+
+
+        <% for(let page_num = start_page; page_num <= end_page; page_num++){ %>
+
+            <% if(cur_page === page_num){ %>
+                <strong><%= page_num %></strong>
+            <% } else { %>
+                <a href="/users?page=<%= page_num %>"><%= page_num %></a>
+            <%  } %>
+        <%  } %>
+
+
+        <% if(next_page){ %>
+            <a href="/users?page=<%= next_page %>">다음</a>
+        <% } %>
+
+
+        <% if(total_page > cur_page){ %>
+            <a href="/users?page=<%= total_page %>">마지막</a>
+        <% } %>
+
+    </div>
+
+  </body>
+</html>
+
+

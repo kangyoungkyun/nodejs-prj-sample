@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <title>파일</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <div>싱글 파일</div>
+    <form name="single_file" action="/file/upload" method="post" enctype="multipart/form-data"> <!-- 멀티파트 폼 데이터 -->
+        <input type="file" name="single_file">
+        <input type="text" name="title">
+        <button type="submit">Submit</button>
+    </form>
+
+    <hr>
+
+    <div>멀티 파일</div>
+    <form name="myfiles" action="/file/upload_arry" method="post" enctype="multipart/form-data">
+        <input type='file' name='images' multiple/>
+        <button type="submit">Submit</button>
+   </form> 
+
+
+
+  </body>
+</html>
+
+
